@@ -40,4 +40,19 @@ class Game:
         for _ in range(3):
             self.community_cards.append(self.deck.deal_card())
             
-    
+    def deal_turn(self):
+        """Deal the fourth community card."""
+        self.community_cards.append(self.deck.deal_card())
+
+    def deal_river(self):
+        """Deal the fifth community card."""
+        self.community_cards.append(self.deck.deal_card())
+
+    def betting_round(self):
+        """Run one simple betting round."""
+        for player in [self.player1, self.player2]:
+            if player.folded:
+                continue
+
+            print(f"\\n{player.name}, you have {player.chips} chips.")
+            action = input("Choose: check, bet, or fold: ").strip().lower()
