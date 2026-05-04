@@ -21,3 +21,16 @@ def test_flush_case():
     ]
     assert hand_name(evaluate_five_card_hand(cards)) == "Flush"
 
+def test_best_hand_returns_score():
+    cards = [
+        Card("A", "spades"),
+        Card("A", "hearts"),
+        Card("K", "diamonds"),
+        Card("Q", "clubs"),
+        Card("J", "spades"),
+        Card("2", "clubs"),
+        Card("3", "diamonds")
+    ]
+    score, best_cards = best_hand(cards)
+    assert score is not None
+    assert len(best_cards) == 5
