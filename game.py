@@ -104,7 +104,7 @@ class Game:
             print(f"Winner: {winner.name}")
             print(f"{winner.name} wins {self.pot} chips.")
     
-    def main(player1_name, player2_name):
+def main(player1_name, player2_name):
      """Start and play one round of the game."""
      game = Game(player1_name, player2_name)
      game.setup_round()
@@ -128,15 +128,15 @@ class Game:
      print("River:", " | ".join(str(card) for card in game.community_cards))
      game.show_results()
      
-    def parse_args(args_list):
-        """Parse command-line arguments."""
-        parser = argparse.ArgumentParser()
-        parser.add_argument('player1_name', type=str, help="Please enter Player 1's name")
-        parser.add_argument('player2_name', type=str, help="Please enter Player 2's name")
-        args = parser.parse_args(args_list)
-        return args
+def parse_args(args_list):
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument('player1_name', type=str, help="Please enter Player 1's name")
+    parser.add_argument('player2_name', type=str, help="Please enter Player 2's name")
+    args = parser.parse_args(args_list)
+    return args
     
-    if __name__ == "__main__":
-        arguments = parse_args(sys.argv[1:])
-        main(arguments.player1_name, arguments.player2_name)
+if __name__ == "__main__":
+    arguments = parse_args(sys.argv[1:])
+    main(arguments.player1_name, arguments.player2_name)
 
