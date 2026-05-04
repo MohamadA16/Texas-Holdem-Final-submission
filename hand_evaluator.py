@@ -63,3 +63,25 @@ def best_hand(seven_cards):
             best_cards = combo
 
     return best_score, best_cards
+
+def hand_name(score):
+    """Convert a score into a hand name.
+
+    Args:
+        score (tuple): the score returned by the evaluator.
+
+    Returns:
+        str: name of the poker hand.
+    """
+    names = {
+        8: "Straight Flush",
+        7: "Four of a Kind",
+        6: "Full House",
+        5: "Flush",
+        4: "Straight",
+        3: "Three of a Kind",
+        2: "Two Pair",
+        1: "One Pair",
+        0: "High Card",
+    }
+    return names[score[0]]
