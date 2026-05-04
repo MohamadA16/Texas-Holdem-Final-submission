@@ -28,3 +28,16 @@ class Game:
         self.pot = 0
         self.player1.clear_hand()
         self.player2.clear_hand()
+    
+    def deal_hole_cards(self):
+        """Deal two cards to each player."""
+        for _ in range(2):
+            self.player1.receive_card(self.deck.deal_card())
+            self.player2.receive_card(self.deck.deal_card())
+
+    def deal_flop(self):
+        """Deal the first three community cards."""
+        for _ in range(3):
+            self.community_cards.append(self.deck.deal_card())
+            
+    
