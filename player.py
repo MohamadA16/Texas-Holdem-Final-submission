@@ -18,3 +18,21 @@ class Player:
         self.chips = chips
         self.hand = []
         self.folded = False
+    
+    def receive_card(self, card):
+        """Add one card to the player's hand.
+
+        Args:
+            card (Card): card to add.
+        """
+        self.hand.append(card)
+
+    def clear_hand(self):
+        """Clear the player's hand for a new round.
+
+        Side effects:
+             Empties the hand and resets folded status.
+        """
+        self.hand = []
+        self.folded = False
+    
