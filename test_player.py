@@ -10,3 +10,8 @@ def test_bet():
     player = Player("Mo", 100)
     assert player.bet(25) == 25
     assert player.chips == 75
+    
+def test_fold():
+    player = Player("Mo")
+    player.fold()
+    assert player.folded is True
