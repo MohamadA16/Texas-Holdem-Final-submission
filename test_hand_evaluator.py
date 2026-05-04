@@ -10,4 +10,14 @@ def test_one_pair_case():
         Card("2", "spades")
     ]
     assert evaluate_five_card_hand(cards)[0] == 1
-    
+
+def test_flush_case():
+    cards = [
+        Card("2", "hearts"),
+        Card("5", "hearts"),
+        Card("8", "hearts"),
+        Card("J", "hearts"),
+        Card("K", "hearts")
+    ]
+    assert hand_name(evaluate_five_card_hand(cards)) == "Flush"
+
