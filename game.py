@@ -56,3 +56,9 @@ class Game:
 
             print(f"\\n{player.name}, you have {player.chips} chips.")
             action = input("Choose: check, bet, or fold: ").strip().lower()
+    
+            if action == "fold":
+                player.fold()
+            elif action == "bet":
+                amount = int(input("Enter bet amount: "))
+                self.pot += player.bet(amount)
