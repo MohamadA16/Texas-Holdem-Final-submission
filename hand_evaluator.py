@@ -43,3 +43,23 @@ def evaluate_five_card_hand(cards):
     if count_values == [2, 1, 1, 1]:
         return (1, values)
     return (0, values)
+
+def best_hand(seven_cards):
+    """Find the best 5-card hand from 7 cards.
+
+    Args:
+        seven_cards (list): a list of 7 Card objects.
+
+    Returns:
+        tuple: best score and best cards.
+    """
+    best_score = None
+    best_cards = None
+
+    for combo in combinations(seven_cards, 5):
+        score = evaluate_five_card_hand(combo)
+        if best_score is None or score > best_score:
+            best_score = score
+            best_cards = combo
+
+    return best_score, best_cards
