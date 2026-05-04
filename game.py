@@ -20,3 +20,11 @@ class Game:
         self.community_cards = []
         self.pot = 0
     
+    def setup_round(self):
+        """Set up the deck and reset player hands."""
+        self.deck = Deck()
+        self.deck.shuffle()
+        self.community_cards = []
+        self.pot = 0
+        self.player1.clear_hand()
+        self.player2.clear_hand()
