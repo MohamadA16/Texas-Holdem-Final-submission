@@ -35,4 +35,21 @@ class Player:
         """
         self.hand = []
         self.folded = False
+    def bet(self, amount):
+        """Remove chips from the player.
+
+        Args:
+            amount (int): amount the player wants to bet.
+
+        Returns:
+            int: the actual amount bet.
+        """
+        if amount > self.chips:
+            amount = self.chips
+        self.chips -= amount
+        return amount
+
+    def fold(self):
+        """Mark the player as folded."""
+        self.folded = True
     
