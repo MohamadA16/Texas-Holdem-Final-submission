@@ -103,3 +103,27 @@ class Game:
             winner.chips += self.pot
             print(f"Winner: {winner.name}")
             print(f"{winner.name} wins {self.pot} chips.")
+    
+    def main(player1_name, player2_name):
+     """Start and play one round of the game."""
+     game = Game(player1_name, player2_name)
+     game.setup_round()
+     game.deal_hole_cards()
+
+     print(f"{player1_name} cards: {' | '.join(str(card) for card in game.player1.hand)}")
+     print(f"{player2_name} cards: {' | '.join(str(card) for card in game.player2.hand)}")
+
+     input("Press Enter for the flop...")
+     game.deal_flop()
+     print("Flop:", " | ".join(str(card) for card in game.community_cards))
+     game.betting_round()
+
+     input("Press Enter for the turn...")
+     game.deal_turn()
+     print("Turn:", " | ".join(str(card) for card in game.community_cards))
+     game.betting_round()
+
+     input("Press Enter for the river...")
+     game.deal_river()
+     print("River:", " | ".join(str(card) for card in game.community_cards))
+     game.show_results()
