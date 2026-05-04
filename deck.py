@@ -14,3 +14,22 @@ class Deck:
         suits = ["spades", "hearts", "diamond", "clubs"]
         self.cards = []
         
+        for suit in suits:
+            for rank in ranks:
+                self.cards.append(Card(rank, suit))
+        
+    def shuffle(self):
+        """Shuffle the deck.
+        
+        side effects:
+            Changes the order of the cards in the deck.
+        """
+        random.shuffle(self.cards)
+        
+    def deal_card(self):
+        """Deal one card from the deck.
+        
+        Returns:
+            Card: the dealt card.
+        """
+        return self.cards.pop()
