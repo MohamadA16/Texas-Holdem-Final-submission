@@ -62,3 +62,23 @@ class Game:
             elif action == "bet":
                 amount = int(input("Enter bet amount: "))
                 self.pot += player.bet(amount)
+    
+    def determine_winner(self):
+        """Figure out who won the round.
+
+        Returns:
+            Player or None: winner or None if it is a tie.
+        """
+        if self.player1.folded:
+            return self.player2
+        if self.player2.folded:
+            return self.player1
+
+        score1, _ = best_hand(self.player1.hand + self.community_cards)
+        score2, _ = best_hand(self.player2.hand + self.community_cards)
+
+        if score1 > score2:
+            return self.player1
+        if score2 > score1:
+            return self.player2
+        return None
