@@ -82,3 +82,24 @@ class Game:
         if score2 > score1:
             return self.player2
         return None
+    
+    
+    def show_results(self):
+        """Print the final results."""
+        print("\\nCommunity Cards:", " | ".join(str(card) for card in self.community_cards))
+        print(f"{self.player1.name} hand: {' | '.join(str(card) for card in self.player1.hand)}")
+        print(f"{self.player2.name} hand: {' | '.join(str(card) for card in self.player2.hand)}")
+
+        score1, _ = best_hand(self.player1.hand + self.community_cards)
+        score2, _ = best_hand(self.player2.hand + self.community_cards)
+
+        print(f"{self.player1.name} best hand: {hand_name(score1)}")
+        print(f"{self.player2.name} best hand: {hand_name(score2)}")
+
+        winner = self.determine_winner()
+        if winner is None:
+            print("Tie game.")
+        else:
+            winner.chips += self.pot
+            print(f"Winner: {winner.name}")
+            print(f"{winner.name} wins {self.pot} chips.")
