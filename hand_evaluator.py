@@ -1,5 +1,7 @@
 from collections import Counter
 from itertools import combinations
+import random
+from card import Card
 
 def evaluate_five_card_hand(cards):
     """Give a score to five cards.
