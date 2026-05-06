@@ -117,9 +117,9 @@ class Game:
         score1, best_cards1 = best_hand(self.player1.hand + self.community_cards)
         score2, best_cards2 = best_hand(self.player2.hand + self.community_cards)
 
-        print(f"{self.player1.name} best hand: {hand_name(score1)}")
-        print(f"{self.player2.name} best hand: {hand_name(score2)}")
-
+        print(detailed_breakdown(self.player1.name, score1, best_cards1))
+        print(detailed_breakdown(self.player2.name, score2, best_cards2))
+        
         winner = self.determine_winner()
         if winner is None:
             print("Tie game.")
