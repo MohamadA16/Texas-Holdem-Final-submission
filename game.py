@@ -54,8 +54,12 @@ class Game:
             if self.player1.folded or self.player1.folded:
                 return
 
-            print(f"\\n{player.name}, you have {player.chips} chips.")
-            action = input("Choose: check, bet, or fold: ").strip().lower()
+            print(f"\n{player.name}, you have {player.chips} chips.")
+            action = ""
+            while action not in ["check", "bet", "fold"]:
+                action = input("Choose: check, bet, or fold: ").strip().lower()
+                if action not in ["check", "bet", "fold"]:
+                    print ("invalid input. You must type 'check', 'bet', or 'fold'.")
     
             if action == "fold":
                 player.fold()
