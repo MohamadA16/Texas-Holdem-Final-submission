@@ -114,5 +114,15 @@ def estimate_odds(hand1, hand2, community_cards, iterations=500):
             p2_wins += 1
         else:
             ties += 1
+    p1_percent = (p1_wins / iterations) * 100
+    p2_percent = (p2_wins / iterations) * 100
+    tie_percent = (ties / iterations) * 100
+    return p1_percent, p2_percent, tie_percent
+
+
+def detailed_breakdown(name, score, best_cards):
+    """Return a detailed explanation of the player's best hand."""
+    cards_used = " | ".join(str(card) for card in best_cards)
+    return f"{name} best hand: {hand_name(score)} using {cards_used}"
 
 
