@@ -103,5 +103,16 @@ def estimate_odds(hand1, hand2, community_cards, iterations=500):
     p2_wins = 0
     ties = 0
     
+    for _ in range(iterations):
+        simulated_community = community_cards + random.sample(remaining_deck, cards_needed)
+        score1, _ = best_hand(hand1 + simulated_community)
+        score2, _ = best_hand(hand2 + simulated_community)
+
+        if score1 > score2:
+            p1_wins += 1
+        elif score2 > score1:
+            p2_wins += 1
+        else:
+            ties += 1
 
 
