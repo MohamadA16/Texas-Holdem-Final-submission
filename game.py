@@ -2,7 +2,7 @@ import sys
 import argparse
 from deck import Deck
 from player import Player
-from hand_evaluator import best_hand, hand_name
+from hand_evaluator import best_hand, hand_name, estimate_odds, detailed_breakdown
 
 class Game:
     """Run one simple round of Texas Hold'em."""
@@ -51,14 +51,15 @@ class Game:
     def betting_round(self):
         """Run one simple betting round."""
         for player in [self.player1, self.player2]:
-            if player.folded:
-                continue
+            if self.player1.folded or self.player1.folded:
+                return
 
             print(f"\\n{player.name}, you have {player.chips} chips.")
             action = input("Choose: check, bet, or fold: ").strip().lower()
     
             if action == "fold":
                 player.fold()
+                return
             elif action == "bet":
                 amount = int(input("Enter bet amount: "))
                 self.pot += player.bet(amount)
