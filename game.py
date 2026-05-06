@@ -140,7 +140,12 @@ def main(player1_name, player2_name):
      input("Press Enter for the flop...")
      game.deal_flop()
      print("Flop:", " | ".join(str(card) for card in game.community_cards))
+     p1_odds, p2_odds, tie_odds = estimate_odds(game.player1.hand, game.player2.hand, game.community_cards)
+     print(f"Odds after flop: {player1_name} {p1_odds:.1f}% | {player2_name} {p2_odds:.1f}% | Tie {tie_odds:.1f}%")
      game.betting_round()
+     if game.player1.folded or game.player2.folded:
+        game.show_results()
+        return
 
      input("Press Enter for the turn...")
      game.deal_turn()
