@@ -94,3 +94,14 @@ def estimate_odds(hand1, hand2, community_cards, iterations=500):
     for suit in ["spades", "hearts", "diamonds", "clubs"]:
         for rank in ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]:
             all_cards.append(Card(rank, suit))
+    
+    known_cards = [str(c) for c in hand1 + hand2 + community_cards]
+    remaining_deck = [c for c in all_cards if str(c) not in known_cards]
+    
+    cards_needed = 5 - len(community_cards)
+    p1_wins = 0
+    p2_wins = 0
+    ties = 0
+    
+
+
