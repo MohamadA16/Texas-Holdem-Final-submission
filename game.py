@@ -51,7 +51,7 @@ class Game:
     def betting_round(self):
         """Run one simple betting round."""
         for player in [self.player1, self.player2]:
-            if self.player1.folded or self.player1.folded:
+            if self.player1.folded or self.player2.folded:
                 return
 
             print(f"\n{player.name}, you have {player.chips} chips.")
