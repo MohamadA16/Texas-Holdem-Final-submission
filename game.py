@@ -96,7 +96,15 @@ class Game:
     
     def show_results(self):
         """Print the final results."""
-        print("\\nCommunity Cards:", " | ".join(str(card) for card in self.community_cards))
+        if self.player1.folded:
+            print(f"\n{self.player1.name} folded.")
+            print(f"Winner: {self.player2.name}")
+            print(f"{self.player2.name} wins {self.pot} chips.")
+            self.player2.chips += self.pot
+            return
+        
+        
+        print("\nCommunity Cards:", " | ".join(str(card) for card in self.community_cards))
         print(f"{self.player1.name} hand: {' | '.join(str(card) for card in self.player1.hand)}")
         print(f"{self.player2.name} hand: {' | '.join(str(card) for card in self.player2.hand)}")
 
