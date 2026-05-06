@@ -65,8 +65,13 @@ class Game:
                 player.fold()
                 return
             elif action == "bet":
-                amount = int(input("Enter bet amount: "))
-                self.pot += player.bet(amount)
+                while True:
+                    try:
+                        amount = int(input("Enter bet amount: "))
+                        break
+                    except ValueError:
+                        print("Invalid input. Please enter a valid number.")
+                        self.pot += player.bet(amount)
     
     def determine_winner(self):
         """Figure out who won the round.
