@@ -160,6 +160,8 @@ def main(player1_name, player2_name):
      input("Press Enter for the river...")
      game.deal_river()
      print("River:", " | ".join(str(card) for card in game.community_cards))
+     p1_odds, p2_odds, tie_odds = estimate_odds(game.player1.hand, game.player2.hand, game.community_cards)
+     print(f"Odds after river: {player1_name} {p1_odds:.1f}% | {player2_name} {p2_odds:.1f}% | Tie {tie_odds:.1f}%")
      game.show_results()
      
 def parse_args(args_list):
