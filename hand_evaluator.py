@@ -87,3 +87,10 @@ def hand_name(score):
         0: "High Card",
     }
     return names[score[0]]
+
+def estimate_odds(hand1, hand2, community_cards, iterations=500):
+    """Estimate win probability using simulation."""
+    all_cards = []
+    for suit in ["spades", "hearts", "diamonds", "clubs"]:
+        for rank in ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]:
+            all_cards.append(Card(rank, suit))
