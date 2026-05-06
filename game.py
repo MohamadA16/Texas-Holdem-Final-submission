@@ -71,7 +71,7 @@ class Game:
                         break
                     except ValueError:
                         print("Invalid input. Please enter a valid number.")
-                        self.pot += player.bet(amount)
+                self.pot += player.bet(amount)
     
     def determine_winner(self):
         """Figure out who won the round.
